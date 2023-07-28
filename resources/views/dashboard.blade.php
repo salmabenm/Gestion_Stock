@@ -120,10 +120,10 @@
                 <li><a href="{{ route('profile.show') }}"> <i class="fa fa-user"></i> Your account</a></li>
                 <li><a href="{{ route('suppliers.index') }}"> <i class="fas fa-briefcase"></i> Supplier management</a></li>
                 <li><a href="{{ route('products.index') }}"><i class="fa fa-shopping-bag"></i> Product management</a></li>
-                <li><a href="#item3"><i class="fa fa-shopping-cart"></i> Order management</a></li>
-                <li><a href="#item4"><i class="fa fa-building"></i>  Customer management</a></li>
-                <li><a href="#item5"><i class="fa fa-box-open"></i> Inventory management</a></li>
-                <li><a href="#item6"> <i class="fa fa-history"></i> History "Entries/Exits"</a></li>
+                <li><a href="{{ route('orders.index') }}"><i class="fa fa-shopping-cart"></i> Order management</a></li>
+                <li><a href="{{ route('clients.index') }}"><i class="fa fa-building"></i>  Customer management</a></li>
+                <li><a href="{{ route('inventory.index') }}"><i class="fa fa-box-open"></i> Inventory management</a></li>
+                <li><a href="{{ route('inventory.graph') }}"> <i class="fa fa-history"></i> History "Entries/Exits"</a></li>
             </ul>
         </div>
 

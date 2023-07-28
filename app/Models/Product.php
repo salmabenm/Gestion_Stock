@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $table = 'products';
-    protected $fillable = ['name', 'description', 'price', 'quantity'];
+    protected $table = 'producty';
+    protected $fillable = ['name', 'description', 'price', 'quantity','categories'];
 
     // Since you mentioned disabling timestamps, we do that in the model itself.
     public $timestamps = false;

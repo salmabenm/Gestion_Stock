@@ -8,6 +8,9 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\InventoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,6 +68,33 @@ Route::post('/products', [ProductController::class, 'store'])->name('products.st
 Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{products}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/create', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::get('/orders/{id}/edit', [OrderController::class, 'edit'])->name('orders.edit');
+Route::put('/orders/{id}', [OrderController::class, 'update'])->name('orders.update');
+Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
+Route::post('/orders/{id}/accept', [OrderController::class, 'acceptOrder'])->name('orders.accept');
+
+
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
+Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+Route::get('/clients/{id}/edit', [ClientController::class, 'edit'])->name('clients.edit');
+Route::put('/clients/{id}', [ClientController::class, 'update'])->name('clients.update');
+Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
+
+
+Route::get('/inventory', [InventoryController::class, 'index']);
+Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
+Route::get('/inventory/create', [InventoryController::class, 'create'])->name('inventory.create');
+Route::post('/inventory', [InventoryController::class, 'store'])->name('inventory.store');
+Route::get('/inventory/{id}/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
+Route::put('/inventory/{id}', [InventoryController::class, 'update'])->name('inventory.update');
+Route::delete('/inventory/{inventory}', [InventoryController::class, 'destroy'])->name('inventory.destroy');
+Route::get('/inventory/graph', [InventoryController::class, 'graphique'])->name('inventory.graph');
 
 
 Route::post('/logout', function () {

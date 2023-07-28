@@ -181,7 +181,7 @@
             text-decoration: none;
             border-radius: 5px;
             margin-bottom: 5px;
-            height: 57px;
+            height: 40px;
         }
 
         .btn-delete:hover {
@@ -200,16 +200,16 @@
                 <li><a href="{{ route('dashboard') }}"> <i class="fas fa-tachometer-alt"></i> Your dashboard</a></li>
                 <li><a href="{{ route('suppliers.index') }}"> <i class="fas fa-briefcase"></i> Supplier management</a></li>
                 <li><a href="{{ route('products.index') }}"><i class="fa fa-shopping-bag"></i> Product management</a></li>
-                <li><a href="#item3"><i class="fa fa-shopping-cart"></i> Order management</a></li>
-                <li><a href="#item4"><i class="fa fa-building"></i>  Customer management</a></li>
-                <li><a href="#item5"><i class="fa fa-box-open"></i> Inventory management</a></li>
+                <li><a href="{{ route('orders.index') }}"><i class="fa fa-shopping-cart"></i> Order management</a></li>
+                <li><a href="{{ route('clients.index') }}"><i class="fa fa-building"></i>  Customer management</a></li>
+                <li><a href="{{ route('inventory.index') }}"><i class="fa fa-box-open"></i> Inventory management</a></li>
                 <li><a href="#item6"> <i class="fa fa-history"></i> History "Entries/Exits"</a></li>
             </ul>
         </div>
 
         <!-- Content -->
         <div class="content">
-            <h1>Supplier management</h1>
+            <h1>SUPPLIER MANAGEMENT</h1>
             <a href="{{ route('suppliers.create') }}" class="btn btn-primary">Add supplier</a>
 
             @if (session('success'))
@@ -243,7 +243,7 @@
                             <td>
                                 <!-- Edit Supplier Button -->
                                 <a href="{{ route('suppliers.edit', $supplier->id) }}" class="btn btn-edit">
-                                    <i class="fa fa-edit"></i> Edit
+                                     Edit
                                 </a>
                             </td>
                             <td>
@@ -252,7 +252,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this supplier?')">
-                                        <i class="fa fa-trash"></i> Delete
+                                         Delete
                                     </button>
                                 </form>
                             </td>

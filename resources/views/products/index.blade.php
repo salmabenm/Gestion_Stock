@@ -181,7 +181,7 @@
             text-decoration: none;
             border-radius: 5px;
             margin-bottom: 5px;
-            height: 57px;
+            height: 40px;
         }
 
         .btn-delete:hover {
@@ -197,18 +197,19 @@
             <h2><img src="image/title2.png" alt="" style="width: 200px; height:60px"></h2>
             <ul>
                 <li><a href="{{ route('profile.show') }}"> <i class="fa fa-user"></i> Your account</a></li>
+                <li><a href="{{ route('dashboard') }}"> <i class="fas fa-tachometer-alt"></i> Your dashboard</a></li>
                 <li><a href="{{ route('suppliers.index') }}"> <i class="fas fa-briefcase"></i> Supplier management</a></li>
                 <li><a href="{{ route('products.index') }}"><i class="fa fa-shopping-bag"></i> Product management</a></li>
-                <li><a href="#item3"><i class="fa fa-shopping-cart"></i> Order management</a></li>
-                <li><a href="#item4"><i class="fa fa-building"></i>  Customer management</a></li>
-                <li><a href="#item5"><i class="fa fa-box-open"></i> Inventory management</a></li>
+                <li><a href="{{ route('orders.index') }}"><i class="fa fa-shopping-cart"></i> Order management</a></li>
+                <li><a href="{{ route('clients.index') }}"><i class="fa fa-building"></i>  Customer management</a></li>
+                <li><a href="{{ route('inventory.index') }}"><i class="fa fa-box-open"></i> Inventory management</a></li>
                 <li><a href="#item6"> <i class="fa fa-history"></i> History "Entries/Exits"</a></li>
             </ul>
         </div>
 
         <!-- Content -->
         <div class="content">
-            <h1>Product management</h1>
+            <h1>PRODUCT   MANAGEMENT</h1>
             <a href="{{ route('products.create') }}" class="btn btn-primary">Add product</a>
 
             @if (session('success'))
@@ -226,7 +227,8 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Stock</th>
+                        <th>Quantity</th>
+                        <th>Categories</th>
                         <th>Edit</th> <!-- Edit column -->
                         <th>Delete</th> <!-- Delete column -->
                     </tr>
@@ -238,11 +240,12 @@
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->description }}</td>
                             <td>{{ $product->price }}</td>
-                            <td>{{ $product->stock }}</td>
+                            <td>{{ $product->quantity }}</td>
+                            <td>{{ $product->categories }}</td>
                             <td>
                                 <!-- Edit Product Button -->
                                 <a href="{{ route('products.edit', $product->id) }}" class="btn btn-edit">
-                                    <i class="fa fa-edit"></i> Edit
+                                     Edit
                                 </a>
                             </td>
                             <td>
@@ -251,9 +254,10 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this product?')">
-                                        <i class="fa fa-trash"></i> Delete
+                                        Delete
                                     </button>
                                 </form>
+                                
                             </td>
                         </tr>
                     @endforeach

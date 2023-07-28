@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="icon" href="{{ asset('image/logo.png') }}">
-    <title>SUPPLIER</title>
+    <title>ADD</title>
     
 </head>
 <body>

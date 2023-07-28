@@ -28,6 +28,7 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'quantity' => 'required|integer|min:0',
+            'categories' => 'nullable|string',
         ]);
 
         Product::create($validatedData);
@@ -49,6 +50,7 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'quantity' => 'required|integer|min:0',
+            'categories' => 'nullable|string',
         ]);
 
         $product->update($validatedData);
@@ -56,9 +58,14 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
 
-    public function destroy(Product $product)
+    public function destroy($id)
     {
+        $product = Product::find($id);
+        if (!$product) {
+            return redirect()->route('products.index')->with('error', 'Product not found.');
+        }
+    
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'Product deleted successfully!');
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 }
