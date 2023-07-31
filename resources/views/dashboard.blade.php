@@ -117,7 +117,7 @@
         <div class="sidebar">
             <h2><img src="image/title2.png" alt="" style="width: 200px; height:60px"></h2>
             <ul>
-                <li><a href="{{ route('profile.show') }}"> <i class="fa fa-user"></i> Your account</a></li>
+                <li><a href="{{ route('user.show') }}"> <i class="fa fa-user"></i> Your account</a></li>
                 <li><a href="{{ route('suppliers.index') }}"> <i class="fas fa-briefcase"></i> Supplier management</a></li>
                 <li><a href="{{ route('products.index') }}"><i class="fa fa-shopping-bag"></i> Product management</a></li>
                 <li><a href="{{ route('orders.index') }}"><i class="fa fa-shopping-cart"></i> Order management</a></li>
@@ -132,38 +132,38 @@
             <h1>WELCOME TO DASHBOARD</h1>
 
             <div class="item" id="item1">
-                <h2><a href="" target="_blank" rel="noopener noreferrer">Supplier management</a></h2>
+                <h2><a href="{{ route('suppliers.index') }}" target="_blank" rel="noopener noreferrer">Supplier management</a></h2>
                 <p>This part allows managers to manage suppliers by adding, deleting, or modifying information about a supplier from whom such a product was purchased.</p>
                 
                 <!-- Add content for Item 1 -->
             </div>
 
             <div class="item" id="item2">
-                <h2><a href="" target="_blank" rel="noopener noreferrer">Product management</a></h2>
+                <h2><a href="{{ route('products.index') }}" target="_blank" rel="noopener noreferrer">Product management</a></h2>
                 <p>This section provides managers with the ability to handle products efficiently. It empowers them to add, remove, or modify product information with ease, thereby streamlining the product management process </p>
                 <!-- Add content for Item 2 -->
             </div>
 
             <div class="item" id="item3">
-                <h2><a href="" target="_blank" rel="noopener noreferrer">Order management</a></h2>
+                <h2><a href="{{ route('orders.index') }}" target="_blank" rel="noopener noreferrer">Order management</a></h2>
                 <p>This section enables managers to oversee orders effectively. They have the flexibility to add or delete order information, providing a seamless and comprehensive order management experience.</p>
                 <!-- Add content for Item 3 -->
             </div>
 
             <div class="item" id="item4">
-                <h2><a href="" target="_blank" rel="noopener noreferrer">Customer management</a></h2>
+                <h2><a href="{{ route('clients.index') }}" target="_blank" rel="noopener noreferrer">Customer management</a></h2>
                 <p>In this section, the manager gains full control over customer management. They can easily add, delete, or update customer information, specifically those who have made purchases from the stock. This capability ensures efficient and personalized customer management for improved service and satisfaction.</p>
                 <!-- Add content for Item 4 -->
             </div>
 
             <div class="item" id="item5">
-                <h2><a href="" target="_blank" rel="noopener noreferrer">Inventory management</a></h2>
+                <h2><a href="{{ route('inventory.index') }}" target="_blank" rel="noopener noreferrer">Inventory management</a></h2>
                 <p>This section provides the manager with a comprehensive overview of the stock, including its location and the available quantity of products. It offers a holistic and detailed view, enabling the manager to monitor and track stock levels with ease, ensuring efficient inventory management.</p>
                 <!-- Add content for Item 5 -->
             </div>
 
             <div class="item" id="item6">
-                <h2><a href="" target="_blank" rel="noopener noreferrer">History "Entries/Exits"</a></h2>
+                <h2><a href="{{ route('inventory.graph') }}" target="_blank" rel="noopener noreferrer">History "Entries/Exits"</a></h2>
                 <p>In this section, the manager is empowered to handle stock inputs and outputs seamlessly. They can effortlessly add new inputs from suppliers or outputs to customers, and also have the flexibility to delete or modify information related to these stock movements. This functionality ensures efficient tracking and control of stock flow, enabling the manager to maintain accurate inventory records.</p>
                 <!-- Add content for Item 6 -->
             </div>

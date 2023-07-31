@@ -13,6 +13,9 @@ class Product extends Model
 
     // Since you mentioned disabling timestamps, we do that in the model itself.
     public $timestamps = false;
-
+    public function inventory()
+    {
+        return $this->belongsTo(inventory::class, 'inventory_id');
+    }
     // Rest of your model code...
 }

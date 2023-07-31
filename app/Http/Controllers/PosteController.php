@@ -9,16 +9,19 @@ use App\Models\Poste;
 
 class PosteController extends Controller
 {
-    public function store(Request $request)
+    public function update(Request $request)
     {
-        $validatedData = $request->validate([
+        $user = Auth::user();
+
+        $request->validate([
             'poste' => 'required|string|max:255',
             'location' => 'required|string|max:255',
         ]);
 
-        Poste::create($validatedData);
+        $user->update($request->only('poste', 'location'));
 
-        // Ajoutez ici le code pour rediriger l'utilisateur vers la page appropriée après avoir soumis le formulaire.
+        return redirect()->route('user.show')->with('success', 'Your information has been successfully updated!');
     }
+    
 }
 

@@ -83,4 +83,5 @@ class InventoryController extends Controller
 
         return View::make('inventory.graph', compact('data'));
     }
+    
 }

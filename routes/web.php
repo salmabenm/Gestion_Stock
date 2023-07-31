@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\InventoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -95,6 +96,13 @@ Route::get('/inventory/{id}/edit', [InventoryController::class, 'edit'])->name('
 Route::put('/inventory/{id}', [InventoryController::class, 'update'])->name('inventory.update');
 Route::delete('/inventory/{inventory}', [InventoryController::class, 'destroy'])->name('inventory.destroy');
 Route::get('/inventory/graph', [InventoryController::class, 'graphique'])->name('inventory.graph');
+
+
+Route::get('/user', [UserController::class, 'show'])->name('user.show');
+Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
+
+Route::post('/user/change-password', [UserController::class, 'changePassword'])->name('user.change-password');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 
 Route::post('/logout', function () {

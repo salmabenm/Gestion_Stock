@@ -3,16 +3,37 @@
 // app/Http/Controllers/ProductController.php
 
 namespace App\Http\Controllers;
-
+use App\Models\ Inventory;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    
     public function index()
     {
         $products = Product::all();
-        return view('products.index', compact('products'));
+    
+        // Update inventory quantity for each product
+        foreach ($products as $product) {
+            $inventoryProduct = Inventory::where('name', $product->name)->first();
+    
+            if ($inventoryProduct) {
+                // Product exists in inventory, increase quantity
+                $newQuantity = $inventoryProduct->quantity + $product->quantity;
+                $inventoryProduct->update(['quantity' => $newQuantity]);
+            } else {
+                // Product doesn't exist in inventory, decrease quantity
+                $newQuantity = $product->quantity > 0 ? -$product->quantity : 0;
+                Inventory::create([
+                    'name' => $product->name,
+                    'quantity' => $newQuantity,
+                ]);
+            }
+        }
+    
+        return view('products.index', ['products' => $products]);
     }
 
     public function create()
