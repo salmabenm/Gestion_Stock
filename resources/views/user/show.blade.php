@@ -164,7 +164,7 @@
             <input type="text" name="adresse" value="{{ old('adresse', $user->adresse) }}" required>
             <br><br>
             <button type="submit"><i class="fas fa-save"></i> Update</button>
-        </form>
+        </form>  <br><hr><br>
         <form action="{{ route('user.update') }}" method="post">
             @csrf
             <label for="poste">Poste:</label>

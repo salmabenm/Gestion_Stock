@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EDIT CLIENT</title>
+    <link rel="icon" href="{{ asset('image/logo.png') }}">
     <style>
         body {
             padding-top: 20px;
